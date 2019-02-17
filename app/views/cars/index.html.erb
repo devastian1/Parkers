@@ -3,12 +3,12 @@
 	
 
 	<p>
-   		<%=form_tag cars_path, :method => 'get' do %>
+   		<%=form_tag cars_path, id:'search', remote: true, method: :get do %>
     	<%= text_field_tag :search, params[:search]  %>
     	<%= submit_tag "Search", :name => nil,:value => :search.upcase %>
 	</p>
     <% end %>
 
-	<h3> Is the car blocking your way a</h3>
+	
 
 <div id="search"><%= render 'search' %></div>

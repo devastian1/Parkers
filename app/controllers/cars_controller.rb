@@ -6,6 +6,11 @@ class CarsController < ApplicationController
   # GET /cars.json
   def index 
   @cars = Car.search(params[:search]) 
+
+    respond_to do |format|
+        format.html { render action: "index" }
+        format.js # remote: true is sent a js format and sends you to search.js.erb
+    end
   end
 
   # GET /cars/1
