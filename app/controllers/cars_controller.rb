@@ -1,11 +1,11 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:show, :edit, :update, :destroy]
+  # before_action :authorize, except: [:show, :edit, :update, :destroy, :welcome]
 
   # GET /cars
   # GET /cars.json
-  def index
-     @cars = Car.search(params[:search])
+  def index 
+  @cars = Car.search(params[:search]) 
   end
 
   # GET /cars/1
@@ -20,6 +20,10 @@ class CarsController < ApplicationController
 
   # GET /cars/1/edit
   def edit
+  end
+
+  def welcome
+  @cars = Car.search(params[:search])
   end
 
   # POST /cars

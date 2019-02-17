@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Welcome To Parkers</h1>
+<h3>Please enter the number plate of the car blocking your way!</h3>
+
+   <%=form_tag cars_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search]  %>
+    <%= submit_tag "Search", :name => nil,:value => :search.upcase %>
+  </p>
+    <% end %>
+
+    

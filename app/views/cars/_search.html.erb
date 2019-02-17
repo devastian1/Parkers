@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <% @cars.each do |car| %>
+    <% if car.plate_number == params[:search] %>
+      <tr>
+        <td>
+        <%= car.color %>
+        <%= car.model %> ?
+        </td> 
+        <td><%= link_to 'Find Owner', car %></td>
+        <% if current_user && current_user.id == car.user_id %> 
+        <td><%= link_to 'Edit', edit_car_path(car) %></td>
+        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+     
+      <% end %>
+      <% end %>
+    <% end %>
+    
+  </tbody>
+</table>
+            <%= link_to 'Get alerts now', new_car_path %>
+<br>
