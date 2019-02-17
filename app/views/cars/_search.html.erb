@@ -1,11 +1,12 @@
 <table>
   <thead>
+    <h3> Is the car blocking your way a</h3>
     <% @cars.each do |car| %>
     <% if car.plate_number == params[:search] %>
       <tr>
         <td>
-        <%= car.color %>
-        <%= car.model %> ?
+        <h2><%= car.color %></h2>
+        <h2><%= car.model %> ?</h2>
         </td> 
         <td><%= link_to 'Find Owner', car %></td>
         <% if current_user && current_user.id == car.user_id %> 
