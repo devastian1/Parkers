@@ -5,7 +5,7 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
-    @cars = Car.all
+     @cars = Car.search(params[:search])
   end
 
   # GET /cars/1
@@ -26,11 +26,11 @@ class CarsController < ApplicationController
   # POST /cars.json
   def create
     @car = Car.new(car_params)
+    @car.plate_number = params[:car][:plate_number].upcase
     @car.user_id = current_user.id
 
     respond_to do |format|
       if @car.save
-
         format.html { redirect_to @car, notice: 'Car was successfully created.' }
         format.json { render :show, status: :created, location: @car }
       else
