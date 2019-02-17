@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
   	get '/signup' => 'users#new'
     post '/users' => 'users#create'
-
+    root 'cars#welcome'
     get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 end
