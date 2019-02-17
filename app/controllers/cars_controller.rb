@@ -16,6 +16,11 @@ class CarsController < ApplicationController
   # GET /cars/1
   # GET /cars/1.json
   def show
+    @car = Car.find(params[:id])
+    respond_to do |format|
+        format.html { render action: "show" }
+        format.js # remote
+      end
   end
 
   # GET /cars/new
