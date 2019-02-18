@@ -5,6 +5,7 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index 
+  @client_ip = remote_ip()
   @cars = Car.search(params[:search]) 
 
     respond_to do |format|
@@ -17,6 +18,7 @@ class CarsController < ApplicationController
   # GET /cars/1.json
   def show
     @car = Car.find(params[:id])
+    @location = Location.find(params[:id])
     respond_to do |format|
         format.html { render action: "show" }
         format.js # remote
@@ -42,6 +44,7 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
     @car.plate_number = params[:car][:plate_number].upcase
     @car.user_id = current_user.id
+    @car.ip_address = request.remote_ip
 
     respond_to do |format|
       if @car.save
@@ -86,6 +89,8 @@ class CarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params.require(:car).permit(:model, :color, :plate_number)
+      params.require(:car).permit(:model, :color, :plate_number, :ip_address, :lat, :lon)
     end
+
+    
 end
