@@ -41,6 +41,10 @@ gem 'jquery-rails'
 
 gem 'geocoder'
 
+gem 'carrierwave-aws'
+
+gem 'aws-sdk-rails'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
