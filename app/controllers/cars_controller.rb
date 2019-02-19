@@ -18,7 +18,8 @@ class CarsController < ApplicationController
   # GET /cars/1.json
   def show
     @car = Car.find(params[:id])
-    @location = Location.find(params[:id])
+    @locations = Location.where(car_id: @car)
+    @location = @locations.last
     respond_to do |format|
         format.html { render action: "show" }
         format.js # remote
