@@ -18,8 +18,8 @@
     </style>
   </head>
   <body>
+    <% if @location != nil %>   
     <div id="map"></div><br>
-   
     <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
@@ -69,6 +69,14 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLkEjBOz2qYqYLoiEzwsyNc62-lt3kngU&callback=initMap">
     // https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCLkEjBOz2qYqYLoiEzwsyNc62-lt3kng
     </script>
+
+    <%else%>
+    
+    <%= puts "User has now shared his location" %>
+
+    <% end %>
+
+
   </body>
 </html>
 
