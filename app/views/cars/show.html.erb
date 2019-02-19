@@ -37,8 +37,8 @@
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.watchPosition(function(position) {
-            var centerLat = parseFloat("<%="#{@location.latitude}"%>").toFixed(5);
-            var centerLng = parseFloat("<%="#{@location.longitude}"%>").toFixed(5);
+            var centerLat = parseFloat("<%="#{@location.latitude}"%>").toFixed(8);
+            var centerLng = parseFloat("<%="#{@location.longitude}"%>").toFixed(8);
             var pos = {
               lat: Number(centerLat),
               lng: Number(centerLng)
