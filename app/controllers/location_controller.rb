@@ -4,6 +4,9 @@ class LocationController < ApplicationController
 		# @car = Car.find(params[:id])
 		@car = Car.where(user_id: @user)
 	end
+	
+	def edit
+	end
 
 	def create
 		@location = Location.new

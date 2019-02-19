@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Geolocation</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
@@ -20,7 +19,7 @@
   </head>
   <body>
     <div id="map"></div><br>
-   <h4 id='currentLon'></h4>
+   
     <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
@@ -38,8 +37,8 @@
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.watchPosition(function(position) {
-            var centerLat = parseFloat("<%="#{@location.latitude}"%>").toFixed(0);
-            var centerLng = parseFloat("<%="#{@location.longitude}"%>").toFixed(0);
+            var centerLat = parseFloat("<%="#{@location.latitude}"%>").toFixed(5);
+            var centerLng = parseFloat("<%="#{@location.longitude}"%>").toFixed(5);
             var pos = {
               lat: Number(centerLat),
               lng: Number(centerLng)
@@ -70,7 +69,6 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLkEjBOz2qYqYLoiEzwsyNc62-lt3kngU&callback=initMap">
     // https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCLkEjBOz2qYqYLoiEzwsyNc62-lt3kng
     </script>
-
   </body>
 </html>
 
