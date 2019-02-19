@@ -1,12 +1,39 @@
-<p id="notice"><%= notice %></p>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 40%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="notice"><%= notice %></p>
 
-<h1>Welcome To Parkers</h1>
-<h3>Please enter the number plate of the car blocking your way!</h3>
+	<h1>Welcome To Parkers</h1>
+	<h3>Please enter the number plate of the car blocking your way!</h3>
 
-  <p>
-   	<%=form_tag cars_path, id:'search', remote: true, method: :get do %>
-    <%= text_field_tag :search, params[:search]  %>
-    <%= submit_tag "Search", :name => nil,:value => :search.upcase %>
-  </p>
-    <% end %>
+	  <p>
+	   	<%=form_tag cars_path, id:'search', remote: true, method: :get do %>
+	    <%= text_field_tag :search, params[:search]  %>
+	    <%= submit_tag "Search", :name => nil,:value => :search.upcase %>
+	  </p>
+	    <% end %>
+   
+    
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLkEjBOz2qYqYLoiEzwsyNc62-lt3kngU&callback=initMap">
+    // https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCLkEjBOz2qYqYLoiEzwsyNc62-lt3kng
+    </script>
+  </body>
+</html>
+
     
