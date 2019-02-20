@@ -54,9 +54,10 @@ ActiveRecord::Schema.define(version: 2019_02_18_115851) do
     t.string "password_confirmation"
     t.string "contact_no"
     t.string "avatar"
-    t.integer "cars_id"
+    t.bigint "car_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_users_on_car_id"
   end
 
   add_foreign_key "authentications", "users"

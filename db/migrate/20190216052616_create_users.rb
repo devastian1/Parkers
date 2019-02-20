@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :password_confirmation
       t.string :contact_no
       t.string :avatar
-      t.integer :cars_id
+      t.belongs_to :car
 
       t.timestamps
     end

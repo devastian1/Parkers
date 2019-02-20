@@ -24,13 +24,14 @@
     {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
+        car_id = "<%="#{@car.id}"%>";
         x.innerHTML=  latitude +
-               + longitude;
+               + longitude + car_id;
 
         $.ajax({
             type: 'POST',
             url: 'http://localhost:3000/location/new',
-            data: {  latitude, longitude },
+            data: {  latitude, longitude, car_id },
             dataType: 'json'
 
         });
