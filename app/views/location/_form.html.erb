@@ -1,6 +1,10 @@
-<%= form_with(url: new_car_location_path, model: location, local: true) do |form| %>
-  <div class="action">
-    <%= form.submit "Let Users find you!" %>
-  </div>
-
+<%= form_with(url: new_location_path, model: location, local: true) do |form| %>
+<div class="field">
+  <%= form.select :car_id, Car.all.collect { |p| [ p.plate_number, p.id ] }, blank: 'Pick someone' %>
+</div>
+<%= form.hidden_field :latitude, :id => "demo" %>
+<%= form.hidden_field :longitude, :id => "demo" %>
+<button onclick="getLocation()">Find me</button>
+<!-- <div id="currentLat"></div>
+<div id="currentLon"></div> -->
 <% end %>
