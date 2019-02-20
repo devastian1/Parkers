@@ -1,8 +1,8 @@
 class LocationController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	def new
-		@car = Car.all 
-		# @car = Car.where(user_id: current_user.id)
+		# @car = Car.all 
+		@car = Car.where(user_id: current_user.id)
 	end
 	
 	def edit
@@ -15,16 +15,17 @@ class LocationController < ApplicationController
 		@location = Location.new
 		@car = Car.where(user_id: current_user.id)
 		@location.ip_address = request.remote_ip
-		# @location.car_id = @car.id
+		# @location.car_id = params[:car_id]
 		sleep 3.5
        	@location.latitude = params[:latitude]
        	@location.longitude = params[:longitude]
-		respond_to do |format|
+        @location.car_id = params[:car_id]
       if @location.save
+		respond_to do |format|
+        format.json { render :json => {:latitude =>@location.latitude, :longitude => @location.longitude}, status: :created }
         format.html { redirect_to '/', notice: 'Location Successfully Updated' }
-        format.json { render :show, status: :created, location: @car }
        	@location.save
-      	# render :json => {:latitude =>@location.latitude, :longitude => @location.longitude}, status: :created
+      	# 
       else
         format.html { render :edit }
         format.json { render json: @car.errors, status: :unprocessable_entity }
