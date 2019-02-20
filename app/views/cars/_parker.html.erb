@@ -4,6 +4,10 @@
     
   </head>
   <body>
+
+ 
+    <div id="map"></div><br>
+
     
     <p id="notice"><%= notice %></p>
     <div class="container-parker">
@@ -28,12 +32,6 @@
     </p>
 
     <p>
-      <strong>Color:</strong>
-      <%= @car.plate_number %>
-    </p>
-
-
-    <p>
       <strong>Owner's Contact Number:</strong>
       <%= @car.user.contact_no %>
     </p>
@@ -44,7 +42,5 @@
     </p>
     </div>
 
-    
-     
-
   </body>
+  

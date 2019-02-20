@@ -1,7 +1,8 @@
 <h1>Park Now!!!</h1>
 
+<h4>Please choose your car</h4>
 
- <!-- <p id="demo">Click the button to get your coordinates:</p> -->
+
 <%= render 'form', location: @location %>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -37,7 +38,7 @@
 </script>
 <%= link_to 'Back', cars_path %>
 
-  <!-- <script type="text/javascript">
+  <script type="text/javascript">
     var watchId = navigator.geolocation.watchPosition(function(position) { document.getElementById('currentLat').innerHTML= position.coords.latitude; document.getElementById('currentLon').innerHTML = position.coords.longitude; });
     // var latitude = position.coords.latitude;
     // var longitude = position.coords.longitude;
@@ -49,4 +50,4 @@
       lng.val(marker.getPosition().lng());
 }
 
-  </script> -->
+  </script>

@@ -9,7 +9,7 @@
         <h2><%= car.color %></h2>
         <h2><%= car.model %> ?</h2>
         </td> 
-        <td ><%=  link_to 'Find Owner', car, id:'parker', remote: true %></td>
+        <td ><%=  link_to 'Find Owner', car %></td>
         <% if current_user && current_user.id == car.user_id %> 
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
         <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>

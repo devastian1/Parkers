@@ -27,12 +27,10 @@
 	    <%= submit_tag "Search", :name => nil,:value => :search.upcase %>
 	  </p>
 	    <% end %>
-   
-    
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLkEjBOz2qYqYLoiEzwsyNc62-lt3kngU&callback=initMap">
-    // https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCLkEjBOz2qYqYLoiEzwsyNc62-lt3kng
-    </script>
+
+      <h3>Or would you like to park your car? </h3>
+
+      <%= link_to 'Let parkers find me', location_new_path%>
   </body>
 </html>
 

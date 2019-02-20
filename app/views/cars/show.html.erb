@@ -18,7 +18,8 @@
     </style>
   </head>
   <body>
-    <% if @location != nil %>   
+       
+        <% if @location != nil %>   
     <div id="map"></div><br>
     <script>
       // Note: This example requires that you consent to location sharing when
@@ -74,11 +75,11 @@
 
     <% end %>
 
+<div id="parker"><%= render 'parker' %></div>
 
   </body>
 </html>
 
-<div id="parker"><%= render 'parker' %></div>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>
