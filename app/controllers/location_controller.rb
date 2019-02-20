@@ -2,7 +2,7 @@ class LocationController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	def new
 		# @car = Car.all 
-		@car = Car.where(user_id: current_user.id)
+		@car = Car.find_by(user_id: current_user.id)
 	end
 	
 	def edit
@@ -22,7 +22,7 @@ class LocationController < ApplicationController
         @location.car_id = params[:car_id]
       if @location.save
 		respond_to do |format|
-        format.json { render :json => {:latitude =>@location.latitude, :longitude => @location.longitude}, status: :created }
+        format.json { render :json => {:latitude =>@location.latitude, :longitude => @location.longitude, :car_id => @location.car_id}, status: :created }
         format.html { redirect_to '/', notice: 'Location Successfully Updated' }
        	@location.save
       	# 
