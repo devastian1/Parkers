@@ -1,6 +1,6 @@
 <%= form_with(url: new_location_path, model: location, local: true) do |form| %>
 <div class="field">
-  <%= form.select :car_id, Car.all.collect { |p| [ p.plate_number, p.id ] }, blank: 'Pick someone' %>
+  <%= form.select :car_id, Car.where(user_id: current_user.id).collect { |p| [ p.plate_number, p.id ] }, blank: 'Pick someone' %>
 </div>
 <%= form.hidden_field :latitude, :id => "demo" %>
 <%= form.hidden_field :longitude, :id => "demo" %>
