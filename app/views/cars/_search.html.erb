@@ -24,6 +24,9 @@
 </table>
 </body>    <% if current_user == nil || current_user.car_id == nil %>
             <%= link_to 'Get alerts now', new_car_path %>
+
+            <% else %>
+            <%= link_to "Homepage", root_path %>
             <% end %>
 <br>
 </div>
