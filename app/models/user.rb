@@ -3,7 +3,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 	has_secure_password
-  validates :password, length: { minimum: 5}
 	has_many :authentications, dependent: :destroy
 	mount_uploader :avatar, AvatarUploader
 

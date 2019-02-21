@@ -13,14 +13,6 @@ RSpec.describe User, type: :model do
   	expect(user).to_not be_valid
   end
 
-  it 'password length less than 5 characters is invalid' do
-    user = User.new(first_name: 'John', email: 'John@gmail.com', password: '1234', contact_no: "+60176577018")
-
-    result = user.save
-
-    expect(result).to be(false)
-  end
-
   it 'password length must be atleast 5 characters' do
     user = User.new(first_name: 'John', email: 'John@gmail.com', password: '12345', contact_no: "+60176577018")
 
