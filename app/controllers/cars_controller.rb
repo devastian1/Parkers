@@ -1,7 +1,7 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: [:show, :index, :welcome]
-  before_action :authorize_parker, except: [:show, :new, :create, :index, :welcome]
+  before_action :authorize_parker, only: [:edit, :destroy]
 
   # GET /cars
   # GET /cars.json
