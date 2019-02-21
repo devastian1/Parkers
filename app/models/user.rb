@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates_presence_of :first_name, :contact_no
+  validates_presence_of :first_name
   validates :email, uniqueness: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 	has_secure_password

@@ -26,11 +26,6 @@ RSpec.describe User, type: :model do
   	expect(user).to_not be_valid
   end
 
-  it "is not valid without contact_no" do
-  	user = User.new(first_name: 'John', email: 'John@gmail.com', password: '12345', contact_no: nil)
-  	expect(user).to_not be_valid
-  end
-
  it 'email must be unique' do
   user = User.new(first_name: 'John', email: 'John@gmail.com', password: 'blah', contact_no: "+60176577018")
   user.save
