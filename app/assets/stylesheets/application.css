@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+body{
+	text-align: center;
+	color: #eeebd9;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	 background-image: linear-gradient(to right, #942fed , #8961aa);
+}
+
+#search{
+	border-radius: 10px;
+	font-size: 30px;
+
+}
+
+#search-title{
+	border-radius: 5px;
+	font-size: 25px;
+
+}
+
+
+.field{
+	display: inline-block;
+	text-align: right;
+	font-size: 30px;
+}
+a{
+	color: red;
+}
+
+a:visited{
+	color: black;
+}
