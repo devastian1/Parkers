@@ -5,6 +5,7 @@ class User < ApplicationRecord
 	has_secure_password
 	has_many :authentications, dependent: :destroy
 	mount_uploader :avatar, AvatarUploader
+  enum access_level: [:parker, :super_admin]
 
 	def self.create_with_auth_and_hash(authentication, auth_hash)
    user = self.create!(

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post 'location/new' => 'location#create'
   	get '/signup' => 'users#new'
     post '/users' => 'users#create'
+    get '/car' => 'car#show'
     root 'cars#welcome'
     get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 end

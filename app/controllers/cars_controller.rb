@@ -1,6 +1,7 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
-  # before_action :authorize, except: [:show, :edit, :update, :destroy, :welcome]
+  before_action :authorize, except: [:show, :index, :welcome]
+  before_action :authorize_parker, except: [:show, :new, :create, :index, :welcome]
 
   # GET /cars
   # GET /cars.json
@@ -49,6 +50,8 @@ class CarsController < ApplicationController
 
     respond_to do |format|
       if @car.save
+          current_user.car_id = @car.id
+          current_user.save
         format.html { redirect_to @car, notice: 'Car was successfully created.' }
         format.json { render :show, status: :created, location: @car }
       else
@@ -63,6 +66,8 @@ class CarsController < ApplicationController
   def update
     respond_to do |format|
       if @car.update(car_params)
+        current_user.car_id = @car.id
+        current_user.save
         format.html { redirect_to @car, notice: 'Car was successfully updated.' }
         format.json { render :show, status: :ok, location: @car }
       else
@@ -93,5 +98,8 @@ class CarsController < ApplicationController
       params.require(:car).permit(:model, :color, :plate_number, :ip_address)
     end
 
+    def authorize_parker
+            redirect_to root_path if current_user.id != @car.user_id
+    end
     
 end

@@ -13,7 +13,8 @@
 
   <body>
     <% if current_user %>
-    Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
+    <%= link_to "Parkers", '/' %> | <%= link_to "Your page", current_user %><br /> 
+    Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %> 
  
     <% else %>
     <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>

@@ -1,5 +1,6 @@
 class LocationController < ApplicationController
 	skip_before_action :verify_authenticity_token
+	# before_action :authorize_parker
 	def new
 		# @car = Car.all 
 		@car = Car.find_by(user_id: current_user.id)
@@ -43,6 +44,10 @@ private
     def location_params
       params.require(:location).permit(:latitude, :longitude, :ip_address, :car_id)
     end
+
+    # def authorize_parker
+    # 	redirect_to root_path if current_user.car_id != @car.id
+    # end
 
     
 end
