@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_parker
 
   # GET /users
   # GET /users.json
@@ -71,5 +72,9 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password_digest, :password_confirmation, :contact_no, :cars_id, :avatar)
+    end
+
+    def authorize_parker
+            redirect_to root_path if current_user.id != @user.id
     end
 end

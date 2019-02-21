@@ -42,6 +42,11 @@ body{
 .fbox{
 	border-radius: 15px;
 }
+
+.car-field{
+font-size: 35px;
+}
+
 a{
 	color: red;
 }
