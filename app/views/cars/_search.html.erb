@@ -22,7 +22,8 @@
     
   </tbody>
 </table>
-</body>
+</body>    <% if current_user == nil || current_user.car_id == nil %>
             <%= link_to 'Get alerts now', new_car_path %>
+            <% end %>
 <br>
 </div>
