@@ -23,8 +23,9 @@
 
 	  <p>
 	   	<%=form_tag cars_path, id:'search', remote: true, method: :get do %>
-	    <%= text_field_tag :search, params[:search]  %>
-	    <%= submit_tag "Search", :name => nil,:value => :search.upcase %>
+	    <%= text_field_tag :search, params[:search],placeholder:"BLX 1810"   %><br>
+	    <br>
+      <%= submit_tag "Search", id:'search-title', :name => nil,:value => :search.upcase %>
 	  </p>
 	    <% end %>
 

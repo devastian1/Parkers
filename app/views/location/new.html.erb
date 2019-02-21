@@ -5,7 +5,7 @@
 
 <%= render 'form', location: @location %>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
  <script>
     var x=document.getElementById("demo");
@@ -30,7 +30,7 @@
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:3000/location/new',
+            url: 'https://parkers.herokuapp.com/location/new',
             data: {  latitude, longitude, car_id },
             dataType: 'json'
 

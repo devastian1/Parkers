@@ -1,18 +1,19 @@
+<body>
 <table>
   <thead>
-    <div class="container-search">
+    <div class="flex">
     <h3> Is the car blocking your way a</h3>
     <% @cars.each do |car| %>
     <% if car.plate_number == params[:search] %>
       <tr>
-        <td>
-        <h2><%= car.color %></h2>
-        <h2><%= car.model %> ?</h2>
-        </td> 
-        <td ><%=  link_to 'Find Owner', car %></td>
+        
+        <p class="field"><%= car.color %></p>&nbsp;
+        <p class="field"><%= car.model %> ?</p><br />
+        
+        <p class="field"><%=  link_to 'Find Owner', car %></p>
         <% if current_user && current_user.id == car.user_id %> 
-        <td><%= link_to 'Edit', edit_car_path(car) %></td>
-        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="field"><%= link_to 'Edit', edit_car_path(car) %></td>
+        <td class="field"><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
      
       <% end %>
@@ -21,6 +22,7 @@
     
   </tbody>
 </table>
+</body>
             <%= link_to 'Get alerts now', new_car_path %>
 <br>
 </div>
