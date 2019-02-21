@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  validates_presence_of :first_name, :email, :contact_no
 	has_secure_password
 	has_many :authentications, dependent: :destroy
 	mount_uploader :avatar, AvatarUploader
