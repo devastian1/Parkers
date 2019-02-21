@@ -8,6 +8,9 @@ class LocationController < ApplicationController
 	def edit
 	end
 
+	def show
+	end
+
 	def update
 	end
 
@@ -16,18 +19,19 @@ class LocationController < ApplicationController
 		@car = Car.where(user_id: current_user.id)
 		@location.ip_address = request.remote_ip
 		# @location.car_id = params[:car_id]
-		sleep 3.5
+		# sleep 3.5
        	@location.latitude = params[:latitude]
        	@location.longitude = params[:longitude]
         @location.car_id = params[:car_id]
-      if @location.save
+      if @location.longitude != nil
+      	@location.save
 		respond_to do |format|
-        format.json { render :json => {:latitude =>@location.latitude, :longitude => @location.longitude, :car_id => @location.car_id}, status: :created }
-        format.html { redirect_to '/', notice: 'Location Successfully Updated' }
-       	@location.save
-      	# 
+        format.html { redirect_to @car.first, notice: 'Location will be updated shortly' }
+        format.json { render :json => {:latitude =>@location.latitude, :longitude => @location.longitude, :car_id => @location.car_id}, status: :created}.to_json 
+      
+      	
       else
-        format.html { render :edit }
+        format.html { render :new }
         format.json { render json: @car.errors, status: :unprocessable_entity }
       end
     end
