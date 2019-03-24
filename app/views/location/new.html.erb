@@ -31,8 +31,10 @@
             // url: 'https://parkers.herokuapp.com/location/new',
             url: 'http://localhost:3000/location/new',
             data: {  latitude, longitude, car_id },
-            dataType: 'json'
-
+            dataType: 'json',
+            success: function(data) {
+                 console.log(data);
+                }
         });
 
     }

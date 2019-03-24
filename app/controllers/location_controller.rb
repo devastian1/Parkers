@@ -25,12 +25,10 @@ class LocationController < ApplicationController
        	@location.longitude = params[:longitude]
         @location.car_id = params[:car_id]
       if @location.longitude != nil
-      	@location.save
 		respond_to do |format|
-        format.html { redirect_to @car.first, notice: 'Location will be updated shortly' }
-        format.json { render :json => {:latitude =>@location.latitude, :longitude => @location.longitude, :car_id => @location.car_id}, status: :created}.to_json 
-      
-      	
+        format.json { render :json => {:latitude =>@location.latitude, :longitude => @location.longitude, :car_id => @location.car_id}, status: :created }.to_json
+      	@location.save
+
       else
         format.html { render :new }
         format.json { render json: @car.errors, status: :unprocessable_entity }
